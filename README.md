@@ -1,6 +1,6 @@
 # Learning-Log
 ## Requirements
--Anaconda 23.7.4
+- Anaconda 23.7.4
 ## Development 
 - `git clone git@github.com:barabashka25219/Learning-Log.git`
 - `conda env create -f environment.yml`
