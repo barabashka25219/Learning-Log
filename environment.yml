@@ -1,31 +1,36 @@
-name: LearningLog
+name: Pizza
 channels:
   - defaults
 dependencies:
   - _libgcc_mutex=0.1=main
   - _openmp_mutex=5.1=1_gnu
-  - asgiref=3.5.2=py312h06a4308_0
+  - asgiref=3.5.2=py311h06a4308_0
   - bzip2=1.0.8=h7b6447c_0
   - ca-certificates=2023.08.22=h06a4308_0
-  - django=4.1=py312h06a4308_0
-  - expat=2.5.0=h6a678d5_0
+  - django=4.1=py311h06a4308_0
+  - icu=73.1=h6a678d5_0
+  - jansson=2.14=h5eee18b_0
   - ld_impl_linux-64=2.38=h1181459_1
   - libffi=3.4.4=h6a678d5_0
   - libgcc-ng=11.2.0=h1234567_1
   - libgomp=11.2.0=h1234567_1
   - libstdcxx-ng=11.2.0=h1234567_1
   - libuuid=1.41.5=h5eee18b_0
+  - libxml2=2.10.4=hf1b16e4_1
   - ncurses=6.4=h6a678d5_0
   - openssl=3.0.12=h7f8727e_0
-  - pip=23.3=py312h06a4308_0
-  - python=3.12.0=h996f2a0_0
+  - pcre=8.45=h295c915_0
+  - pip=23.3=py311h06a4308_0
+  - python=3.11.5=h955ad1f_0
   - readline=8.2=h5eee18b_0
-  - setuptools=68.0.0=py312h06a4308_0
+  - setuptools=68.0.0=py311h06a4308_0
   - sqlite=3.41.2=h5eee18b_0
-  - sqlparse=0.4.4=py312h06a4308_0
+  - sqlparse=0.4.4=py311h06a4308_0
   - tk=8.6.12=h1ccaba5_0
   - tzdata=2023c=h04d1e81_0
-  - wheel=0.41.2=py312h06a4308_0
+  - uwsgi=2.0.21=py311h5dc2dc4_3
+  - wheel=0.41.2=py311h06a4308_0
   - xz=5.4.2=h5eee18b_0
+  - yaml=0.2.5=h7b6447c_0
   - zlib=1.2.13=h5eee18b_0
-prefix: /home/vsvirskiy/anaconda3/envs/LearningLog
+prefix: /home/vsvirskiy/Utils/anaconda3/envs/Pizza
