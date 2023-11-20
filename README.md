@@ -3,6 +3,7 @@
 - Anaconda 23.7.4
 - Python 3.12.0
 - Django 4.1
+- uWSGI 2.0.21
 ## Development 
 - `git clone git@github.com:barabashka25219/Learning-Log.git` (SSH)
 - `git clone https://github.com/barabashka25219/Learning-Log.git` (HTTPS)
