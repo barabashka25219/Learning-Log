@@ -6,6 +6,7 @@
 ## Development 
 - `git clone git@github.com:barabashka25219/Learning-Log.git`
 - `conda env create -f environment.yml`
+- `conda activate LearningLog`
 ### Add package 
 - `conda search $PACKAGE`
 > Show available version of a packet 
@@ -15,3 +16,6 @@
 - `conda env export > environment.yml`
 - `git commit -m "Add $PACKET in environment"`
 - `git push origin $BRANCH`
+## Work with project
+- `python Learning-Log/learning_log/manage.py migrate`
+- `python Learning-Log/learning_log/manage.py createsuperuser`
