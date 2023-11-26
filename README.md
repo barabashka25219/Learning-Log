@@ -19,3 +19,7 @@
 ## Work with project
 - `python Learning-Log/learning_log/manage.py migrate`
 - `python Learning-Log/learning_log/manage.py createsuperuser`
+## Features
+1. Topics creation
+2. Creation entries of a topic
+3. Users creation and authentication
