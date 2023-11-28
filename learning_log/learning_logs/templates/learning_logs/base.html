@@ -48,8 +48,15 @@
             </div>
         </nav>
 
-        {% block content %} {% endblock %}
+        <main role="main" class="container">
+            <div class="pb-2 mb-2 border-bottom">
+                {% block page_header %}{% endblock %}
+            </div>
 
+            <div>
+                {% block content %}{% endblock %}
+            </div>
+        </main>
     </body>
 </html>
 
