@@ -1,13 +1,41 @@
-<p>
-    <a href="{% url 'learning_logs:index' %}">Learning Log</a>
-    <a href="{% url 'learning_logs:topics' %}">Topics</a> - 
-    {% if user.is_authenticated %}
-        Hello, {{ user.username }}.
-        <a href="{% url 'users:logout' %}">Log out</a>
-    {% else %}
-        <a href="{% url 'users:login' %}">Log in</a>
-        <a href="{% url 'users:register' %}">Register</a>
-    {% endif %}
-</p>
+{% load bootstrap4 %}
 
-{% block content %} {% endblock %}
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>{% block title %}{% endblock %}</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        {% bootstrap_css %}
+        {% bootstrap_javascript jquery='full' %}
+    </head>
+    <body>
+        <p>
+            <a href="{% url 'learning_logs:index' %}">Learning Log</a>
+            <a href="{% url 'learning_logs:topics' %}">Topics</a> - 
+            {% if user.is_authenticated %}
+                Hello, {{ user.username }}.
+                <a href="{% url 'users:logout' %}">Log out</a>
+            {% else %}
+                <a href="{% url 'users:login' %}">Log in</a>
+                <a href="{% url 'users:register' %}">Register</a>
+            {% endif %}
+        </p> 
+
+        <nav class="navbar navbar-expand-md navbar-light bg-light mb-4 border">
+            <a class="navbar-brand" href="%{ url 'learning_logs:index' %}">Learning Log</a>
+
+            <button class="navbar-toggler" type="button" data-toggle="collapse"
+                data-target="#navbarCollapse" aria-controls="navbarCollapse"
+                aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+        {% block content %} {% endblock %}
+        
+        <script src="" async defer></script>
+    </body>
+</html>
+
+
