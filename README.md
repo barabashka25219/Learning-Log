@@ -1,9 +1,16 @@
 # Learning-Log
+![My_image](images/index.png)
+
+This is training project wrote by Django & Bootstrap framework.
+It's support next features:
+- Users registration and athentication;
+- Each user may create own topic;
+- Each topic may contain many entries that can be modified by owner;
 ## Requirements
 - Anaconda 23.7.4
 - Python 3.12.0
 - Django 4.1
-- uWSGI 2.0.21
+- Docker 24.0.7
 ## Development 
 - `git clone git@github.com:barabashka25219/Learning-Log.git` (SSH)
 - `git clone https://github.com/barabashka25219/Learning-Log.git` (HTTPS)
@@ -19,12 +26,9 @@
 - `git push origin $BRANCH`
 ## Docker
 ### Creation
+- `conda activate LearningLog`
 - `cd Learning-Log/learning_logs`
 - `pip list --format=freeze > requirements.txt`
 - `docker build -t barabashka25219/learninglog .`
 ### Run container
-- `docker run -p 8000:5000 --name learninglog barabashka25210/learninglog`
-## Features
-1. Topics creation
-2. Creation entries of a topic
-3. Users creation and authentication
+- `docker run -d -p 8000:5000 --name learninglog barabashka25219/learninglog`
