@@ -5,6 +5,11 @@
 {% endblock %}
 
 {% block content %}
+    {% if topic.image %}
+        <p>
+            <img src="{{ topic.image.url }}" alt="image" style="max-height:500px;max-width:500px;">
+        </p>
+    {% endif %}
     <p>
         <a href="{% url 'learning_logs:new_entry' topic.id %}">Add new entry</a>
     </p>

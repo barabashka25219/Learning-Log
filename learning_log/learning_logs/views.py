@@ -29,7 +29,7 @@ def new_topic(request):
     if request.method != 'POST':
         form = TopicForm()
     else:
-        form = TopicForm(data=request.POST)
+        form = TopicForm(data=request.POST, files=request.FILES)
         if form.is_valid():
             new_topic = form.save(commit=False)
             new_topic.owner = request.user
