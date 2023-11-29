@@ -8,7 +8,7 @@ dependencies:
   - asgiref=3.5.2=py311h06a4308_0
   - beautifulsoup4=4.12.2=pyha770c72_0
   - bzip2=1.0.8=h7b6447c_0
-  - ca-certificates=2023.11.17=hbcca054_0
+  - ca-certificates=2023.08.22=h06a4308_0
   - django=4.1=py311h06a4308_0
   - django-bootstrap4=3.0.1=pyh239f2a4_0
   - expat=2.5.0=h6a678d5_0
@@ -25,7 +25,7 @@ dependencies:
   - ncurses=6.4=h6a678d5_0
   - openssl=3.0.12=h7f8727e_0
   - pcre=8.45=h295c915_0
-  - pip=23.3=py311h06a4308_0
+  - pip=23.3.1=py311h06a4308_0
   - python=3.11.5=h955ad1f_0
   - readline=8.2=h5eee18b_0
   - setuptools=68.0.0=py311h06a4308_0
@@ -40,4 +40,4 @@ dependencies:
   - yaml=0.2.5=h7b6447c_0
   - zipp=3.17.0=pyhd8ed1ab_0
   - zlib=1.2.13=h5eee18b_0
-prefix: /home/vsvirskiy/Utils/anaconda3/envs/LearningLog
+prefix: /home/vsvirskiy/anaconda3/envs/LearningLog
