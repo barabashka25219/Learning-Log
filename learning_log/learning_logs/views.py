@@ -85,6 +85,20 @@ def remove_entry(request, entry_id):
     topic = entry.topic
     topic_id = topic.id
 
-    entry.delete()
+    if request.user == topic.owner:
+        entry.delete()
+    else:
+        raise Http404
 
     return redirect("learning_logs:topic", topic_id=topic_id)
+
+@login_required
+def remove_topic(request, topic_id):
+    topic = Topic.objects.get(id=topic_id)
+
+    if request.user == topic.owner:
+        topic.delete()
+    else:
+        raise Http404
+    
+    return redirect("learning_logs:topics")

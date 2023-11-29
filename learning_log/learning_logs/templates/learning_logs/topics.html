@@ -10,6 +10,9 @@
             <li>
                 <h3>
                     <a href="{% url 'learning_logs:topic' topic.id %}">{{ topic }}</a>
+                    <small>
+                        <a href="{% url 'learning_logs:remove_topic' topic.id %}">(remove)</a>
+                    </small>
                 </h3>
             </li>
 
