@@ -14,8 +14,10 @@
                 <h4 class="card-header">
                     {{ entry.date_added|date:'M d, Y H:i' }}
                     <small>
-                        <a href="{% url 'learning_logs:edit_entry' entry.id %}">edit entry</a>
+                        <a href="{% url 'learning_logs:edit_entry' entry.id %}">edit</a> | 
+                        <a href="{% url 'learning_logs:remove_entry' entry.id %}">remove</a>
                     </small>
+
                 </h4>
 
                 <div class="card-body">
