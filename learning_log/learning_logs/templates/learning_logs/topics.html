@@ -11,7 +11,7 @@
                 <h3>
                     <a href="{% url 'learning_logs:topic' topic.id %}">{{ topic }}</a>
                     <small>
-                        <a href="{% url 'learning_logs:remove_topic' topic.id %}">(remove)</a>
+                        <a href="{% url 'learning_logs:remove_topic' topic.id %}" class="btn btn-danger btn-sm ml-5">remove</a>
                     </small>
                 </h3>
             </li>
@@ -25,5 +25,5 @@
         {% endfor %}
     </ul>
 
-    <h3><a href="{% url 'learning_logs:new_topic' %}">Add topic</a></h3>
+    <h3><a href="{% url 'learning_logs:new_topic' %}" class="btn btn-primary mt-5" role="button">Add topic</a></h3>
 {% endblock %}
