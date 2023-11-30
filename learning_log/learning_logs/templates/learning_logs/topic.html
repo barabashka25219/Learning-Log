@@ -19,8 +19,8 @@
                 <h4 class="card-header">
                     {{ entry.date_added|date:'M d, Y H:i' }}
                     <small>
-                        <a href="{% url 'learning_logs:edit_entry' entry.id %}" class="btn btn-success ml-5" role="button">edit</a>
-                        <a href="{% url 'learning_logs:remove_entry' entry.id %}" class="btn btn-danger ml-2" role="button">remove</a>
+                        <a href="{% url 'learning_logs:edit_entry' entry.id %}" class="btn btn-success ml-5 btn-sm" role="button">edit</a>
+                        <a href="{% url 'learning_logs:remove_entry' entry.id %}" class="btn btn-danger ml-2 btn-sm" role="button">remove</a>
                     </small>
 
                 </h4>
