@@ -7,11 +7,11 @@
 {% block content %}
     {% if topic.image %}
         <p>
-            <img src="{{ topic.image.url }}" alt="image" style="max-height:500px;max-width:500px;">
+            <img src="{{ topic.image.url }}" alt="image" class="w-50">
         </p>
     {% endif %}
     <p>
-        <a href="{% url 'learning_logs:new_entry' topic.id %}">Add new entry</a>
+        <a href="{% url 'learning_logs:new_entry' topic.id %}" class="btn btn-primary" role="button">Add new entry</a>
     </p>
     <ul>
         {% for entry in entries %}
@@ -19,8 +19,8 @@
                 <h4 class="card-header">
                     {{ entry.date_added|date:'M d, Y H:i' }}
                     <small>
-                        <a href="{% url 'learning_logs:edit_entry' entry.id %}">edit</a> | 
-                        <a href="{% url 'learning_logs:remove_entry' entry.id %}">remove</a>
+                        <a href="{% url 'learning_logs:edit_entry' entry.id %}" class="btn btn-success" role="button">edit</a>
+                        <a href="{% url 'learning_logs:remove_entry' entry.id %}" class="btn btn-danger" role="button">remove</a>
                     </small>
 
                 </h4>
