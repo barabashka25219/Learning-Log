@@ -1,0 +1,18 @@
+{% extends "learning_logs/base.html" %}
+{% load bootstrap4 %}
+
+{% block page_header %}
+    <h3>Profile "{{user.username}}"</h3>
+{% endblock %}
+
+{% block content %}
+    <form method="post" action="{% url 'users:profile' user_id %}">
+        {% csrf_token %}
+
+        {% bootstrap_form profile_form %}
+
+        {% buttons %}
+            <button class="btn btn-success btn-lg" role="button" name="submit">Update profile</button>
+        {% endbuttons %}
+    </form>
+{% endblock content %}
