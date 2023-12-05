@@ -17,20 +17,26 @@ def register(request):
             profile.user = new_user
             profile.save()
             login(request, new_user)
-            return redirect('learning_logs:index')
+            return redirect('users:profile', user_id=new_user.id)
     
     return render(request, 'users/register.html', context={'form': form})
 
 @login_required
 def profile(request, user_id):
     profile = Userinfo.objects.get(user=user_id)
+    avatar_img  = profile.avatar
+    
+    if avatar_img:
+        avatar_url = avatar_img.url
+    else:
+        avatar_url = None
 
     if request.method == 'GET':
         profile_form = UserInfoForm(instance=profile)
     else:
-        profile_form = UserInfoForm(instance=profile, data=request.POST)
+        profile_form = UserInfoForm(instance=profile, data=request.POST, files=request.FILES)
 
         if profile_form.is_valid():
             profile_form.save()
     
-    return render(request, 'users/profile.html', context={'profile_form': profile_form, 'user_id': user_id})
+    return render(request, 'users/profile.html', context={'profile_form': profile_form, 'user_id': user_id, 'avatar_url': avatar_url})

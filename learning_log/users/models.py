@@ -8,6 +8,8 @@ class Userinfo(models.Model):
     email = models.EmailField(blank=True)
     firstname = models.CharField(max_length=128, blank=True)
     lastname = models.CharField(max_length=128, blank=True)
+    # change "upload_to" field later!
+    avatar = models.ImageField(upload_to='images/%Y%m%d', blank=True)
     
     class Meta:
         verbose_name_plural = 'userinfos'

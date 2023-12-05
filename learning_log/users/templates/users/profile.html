@@ -2,11 +2,17 @@
 {% load bootstrap4 %}
 
 {% block page_header %}
-    <h3>Profile "{{user.username}}"</h3>
+    <h3>Change your profile<h3>
+{% endblock %}
+
+{% block avatar %}
+    <li class="nav-item">
+        <img class="img-fluid rounded-circle" alt="avatar" src="{{ avatar_url }}">
+    </li>
 {% endblock %}
 
 {% block content %}
-    <form method="post" action="{% url 'users:profile' user_id %}">
+    <form method="post" action="{% url 'users:profile' user_id %}" enctype="multipart/form-data">
         {% csrf_token %}
 
         {% bootstrap_form profile_form %}

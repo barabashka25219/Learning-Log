@@ -21,17 +21,19 @@
                 <span class="navbar-toggler-icon"></span>
             </button>  
             
-            <div class="collapse navbar-collapse" id="navbarCollapse">
+            <div class="collapse navbar-collapse container-fluid" id="navbarCollapse">
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item">
                         <a class="nav-link text-light" href="{% url 'learning_logs:topics' %}">Topics</a>
                     </li>
                 </ul>
-                <ul class="navbar-nav ml-auto">
+                <ul class="navbar-nav ml-auto align-items-center">
                     {% if user.is_authenticated %}
-                        <li class="nav-item">
-                            <span class="navbar-text text-light mr-5">Hello, {{user.username}}.</span>
+                        <li class="nav-item mr-2">
+                            <span class="navbar-text text-light">Hello, {{user.username}}.</span>
                         </li>
+                        {% block avatar %}
+                        {% endblock %}
                         <li class="nav-item">
                             <a class="nav-link text-light" href="{% url 'users:profile' user.id %}">Profile</a>
                         </li>
