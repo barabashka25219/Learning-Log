@@ -30,10 +30,11 @@
                 <ul class="navbar-nav ml-auto align-items-center">
                     {% if user.is_authenticated %}
                         <li class="nav-item mr-2">
-                            <span class="navbar-text text-light">Hello, {{user.username}}.</span>
+                            <span class="navbar-text text-light">@{{user.username}}</span>
                         </li>
-                        {% block avatar %}
-                        {% endblock %}
+                        <li class="nav-item">
+                            <img class="img-fluid rounded-circle" alt="avatar" src="{{ user_info.avatar.url }}">
+                        </li>
                         <li class="nav-item">
                             <a class="nav-link text-light" href="{% url 'users:profile' user.id %}">Profile</a>
                         </li>
@@ -41,6 +42,9 @@
                             <a class="nav-link text-light" href="{% url 'users:logout' %}">Log out</a>
                         </li>
                     {% else %}
+                        <li class="nav-item">
+                            <img class="img-fluid rounded-circle" alt="avatar" src="../../../media/images/default/login.png">
+                        </li>
                         <li class="nav-item">
                             <a class="nav-link text-light" href="{% url 'users:register' %}">Register</a>
                         </li>

@@ -9,7 +9,7 @@ class Userinfo(models.Model):
     firstname = models.CharField(max_length=128, blank=True)
     lastname = models.CharField(max_length=128, blank=True)
     birthdate = models.DateField(null=True, blank=True)
-    avatar = models.ImageField(upload_to='images/%Y%m%d', blank=True)
+    avatar = models.ImageField(upload_to='images/%Y%m%d', default='images/default/login.png')
     
     class Meta:
         verbose_name_plural = 'userinfos'
