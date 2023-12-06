@@ -4,6 +4,7 @@ from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.decorators import login_required
 from .models import Userinfo
 from .forms import UserInfoForm
+from PIL import Image
 
 def register(request):
     if request.method != 'POST':
@@ -38,5 +39,9 @@ def profile(request, user_id):
 
         if profile_form.is_valid():
             profile_form.save()
+        
+        resized_image = Image.open(f'{profile.avatar.url[1:]}')
+        new_image = resized_image.resize((60, 60))
+        new_image.save(f'{profile.avatar.url[1:]}')
     
     return render(request, 'users/profile.html', context={'profile_form': profile_form, 'user_id': user_id, 'avatar_url': avatar_url})
