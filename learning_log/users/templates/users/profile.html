@@ -7,7 +7,7 @@
 
 {% block content %}
     
-    <form method="post" action="{% url 'users:profile' user_info.user.id %}" enctype="multipart/form-data">
+    <form method="post" action="{% url 'users:profile' %}" enctype="multipart/form-data">
         {% csrf_token %}
 
         {% bootstrap_form profile_form %}

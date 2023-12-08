@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect
 from django.contrib.auth import login 
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.decorators import login_required
+from learning_logs.views import get_profile
 from .models import Userinfo
 from .forms import UserInfoForm
 from PIL import Image
@@ -15,7 +16,7 @@ def register(request):
         if form.is_valid():
             new_user = form.save() 
             login(request, new_user)
-            return redirect('users:profile', user_id=new_user.id)
+            return redirect('users:profile')
         
     context = {
         'form': form,
@@ -25,9 +26,8 @@ def register(request):
 
 
 @login_required
-def profile(request, user_id):
-    profile = Userinfo.objects.get(user=user_id)
-
+@get_profile
+def profile(request, profile):
     if request.method == 'GET':
         profile_form = UserInfoForm(instance=profile)
     else:

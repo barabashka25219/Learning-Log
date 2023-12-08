@@ -5,13 +5,20 @@ from django.contrib.auth.decorators import login_required
 from django.http import Http404
 from users.models import Userinfo
 
+def get_profile(view_func):
+    def _get_profile(request, **kwargs):
+        if request.user.is_authenticated:
+            profile = Userinfo.objects.get(user=request.user.id)
+        else:
+            profile = {}
 
-def index(request):
-    if request.user.is_authenticated:
-        profile = Userinfo.objects.get(user=request.user.id)
-    else:
-        profile = {}
+        return view_func(request, profile=profile, **kwargs)
+    
+    return _get_profile
+         
 
+@get_profile
+def index(request, profile):
     context = {
         'user_info': profile,
     }
@@ -20,8 +27,8 @@ def index(request):
 
 
 @login_required
-def topics(request):
-    profile = Userinfo.objects.get(user=request.user.id)
+@get_profile
+def topics(request, profile):
     topics = Topic.objects.filter(owner=request.user).order_by('date_added')
     context = {
         'topics': topics,
@@ -31,8 +38,8 @@ def topics(request):
 
 
 @login_required
-def topic(request, topic_id):
-    profile = Userinfo.objects.get(user=request.user.id)
+@get_profile
+def topic(request, profile, topic_id):
     topic = Topic.objects.get(id=topic_id)
 
     if request.user != topic.owner:
@@ -48,9 +55,8 @@ def topic(request, topic_id):
 
 
 @login_required
-def new_topic(request):
-    profile = Userinfo.objects.get(user=request.user.id)
-
+@get_profile
+def new_topic(request, profile):
     if request.method != 'POST':
         form = TopicForm()
     else:
@@ -69,8 +75,8 @@ def new_topic(request):
 
 
 @login_required
-def new_entry(request, topic_id):
-    profile = Userinfo.objects.get(user=request.user.id)
+@get_profile
+def new_entry(request, profile, topic_id):
     topic = Topic.objects.get(id=topic_id)
     
     if request.user != topic.owner:
@@ -96,8 +102,8 @@ def new_entry(request, topic_id):
     return render(request, 'learning_logs/new_entry.html', context)
 
 @login_required
-def edit_entry(request, entry_id):
-    profile = Userinfo.objects.get(user=request.user.id)
+@get_profile
+def edit_entry(request, profile, entry_id):
     entry = Entry.objects.get(id=entry_id)
     topic = entry.topic
     topic_id = topic.id
@@ -120,7 +126,7 @@ def edit_entry(request, entry_id):
         'user_info': profile
     }
         
-    return render(request, 'learning_logs/edit_entry.html', context={'form': form, 'entry_id': entry_id})
+    return render(request, 'learning_logs/edit_entry.html', context=context)
 
 
 @login_required
@@ -139,7 +145,6 @@ def remove_entry(request, entry_id):
 
 @login_required
 def remove_topic(request, topic_id):
-    profile = Userinfo.objects.get(user=request.user.id)
     topic = Topic.objects.get(id=topic_id)
 
     if request.user == topic.owner:
