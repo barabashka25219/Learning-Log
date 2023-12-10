@@ -1,6 +1,6 @@
 # Learning-Log
 ![My_image](images/index.png)
-This is training project wrote by Django & Bootstrap framework.
+This is training project based on Django & Bootstrap framework.
 It supports next features:
 - Users registration and athentication;
 - Each user may create own topic;
